@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import DrinkLogo from "../assets/drink.png";
-
+import avatar from "../assets/avatar.svg";
 const Header = () => {
   return (
     <NavBar>
@@ -18,12 +18,13 @@ const Header = () => {
         <NavLink activeClassName="active" to="/drinks">
           Drinks
         </NavLink>
-        <NavLink activeClassName="active" to="/myfavor">
+        <NavLink activeClassName="active" to="/myfavorite">
           MyFavor
         </NavLink>
         <NavLink activeClassName="active" to="/about">
           About
         </NavLink>
+        <img src={avatar} alt="" />
       </NavRoute>
     </NavBar>
   );
@@ -77,5 +78,9 @@ const NavRoute = styled.div`
 
   a.active {
     text-decoration: underline;
+  }
+  img {
+    width: 40px;
+    margin-right: 10px;
   }
 `;

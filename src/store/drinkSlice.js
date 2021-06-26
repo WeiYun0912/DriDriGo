@@ -18,6 +18,12 @@ const drinkSlice = createSlice({
       };
       state.favoriteDrinks.push(favorite);
     },
+    removeFavoriteDrink(state, action) {
+      const newFavoriteDrinks = state.favoriteDrinks.filter(
+        (drink) => drink.idDrink !== action.payload
+      );
+      state.favoriteDrinks = newFavoriteDrinks;
+    },
     getDrinksData(state, aciton) {
       state.drinks = aciton.payload;
     },

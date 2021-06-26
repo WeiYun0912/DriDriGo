@@ -1,13 +1,20 @@
 import React from "react";
+import { Animated } from "react-animated-css";
 import styled from "styled-components";
 
 const Banner = () => {
   return (
     <Wrapper>
       <ActionWrapper>
-        <MainActionText>DriDriGo Your Drink Choose</MainActionText>
-        <SecActionText>Pick Your Favorite Drink</SecActionText>
-        <ActionButton>See All Drinks</ActionButton>
+        <Animated animationIn="bounceInLeft">
+          <MainActionText>DriDriGo Your Drink Choice</MainActionText>
+        </Animated>
+        <Animated animationIn="bounceInRight">
+          <SecActionText>Pick Your Favorite Drink</SecActionText>
+        </Animated>
+        <Animated animationIn="fadeIn" animationInDelay={300}>
+          <ActionButton>See All Drinks</ActionButton>
+        </Animated>
       </ActionWrapper>
     </Wrapper>
   );
@@ -25,6 +32,7 @@ const Wrapper = styled.div`
   background-size: cover;
   background-position: center center;
   color: #fff;
+  overflow: hidden;
 `;
 
 const ActionWrapper = styled.div`

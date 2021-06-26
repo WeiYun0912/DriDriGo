@@ -1,5 +1,5 @@
 import "./App.css";
-import Banner from "./components/Banner";
+import Home from "./components/Home";
 import Header from "./components/Header";
 import { useDispatch } from "react-redux";
 import { getDrinksDataFromAPI } from "./store/drinkActions";
@@ -8,7 +8,7 @@ import { Route, Switch } from "react-router-dom";
 import Drink from "./components/Drink";
 import React, { Suspense } from "react";
 import { useEffect } from "react";
-import MyFavorite from "./components/MyFavorite";
+import MyFavoriteDrinks from "./components/MyFavoriteDrinks";
 
 const Drinks = React.lazy(() => import("./components/Drinks"));
 
@@ -25,11 +25,11 @@ function App() {
         <Header />
 
         <Switch>
-          <Route path="/" component={Banner} exact />
+          <Route path="/" component={Home} exact />
 
           <Route path="/drinks" component={Drinks} />
           <Route path="/drink/:id" component={Drink} />
-          <Route path="/myfavor" component={MyFavorite} />
+          <Route path="/myfavorite" component={MyFavoriteDrinks} />
         </Switch>
       </Suspense>
     </div>
