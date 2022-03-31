@@ -91,17 +91,17 @@ const SearchWrapper = styled.div`
     padding: 0 25px;
   }
 
-  button{
-    font-size :20px;
-      position : relative;
-      width : 150px;
-      height : 50px;
-      outline : none;
-      border : none;
-      cursor : pointer;
-      background : #EF4056;
-      color : #fff;
-      left -5px;
+  button {
+    font-size: 20px;
+    position: relative;
+    width: 150px;
+    height: 50px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: #ef4056;
+    color: #fff;
+    left: -5px;
   }
 
   select {
