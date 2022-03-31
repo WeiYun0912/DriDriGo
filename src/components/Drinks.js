@@ -1,10 +1,9 @@
 import React from "react";
 import { useEffect } from "react";
-
+import { motion } from "framer-motion/dist/framer-motion";
 import { useRef } from "react";
-import { Animated } from "react-animated-css";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import {
   getDrinksDataBySearch,
@@ -16,8 +15,9 @@ import DrinksCommon from "./common/DrinksCommon";
 const Drinks = () => {
   const dispatch = useDispatch();
   const searchRef = useRef();
-  const history = useHistory();
   const location = useLocation();
+  const navigate = useNavigate();
+
   const searchParams = new URLSearchParams(location.search);
   const search = searchParams.get("s");
   useEffect(() => {
@@ -27,7 +27,6 @@ const Drinks = () => {
         console.log("render");
         isSearching = true;
         dispatch(getDrinksDataBySearch(search));
-        // return;
       }
     };
 
@@ -43,15 +42,16 @@ const Drinks = () => {
 
   const searchDrinks = () => {
     const searchText = searchRef.current.value;
-
-    history.push({
-      pathname: location.pathname,
-      search: `?s=${searchText}`,
-    });
+    console.log(searchText);
+    navigate(`${location.pathname}?s=${searchText}`);
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      exit={{ x: "-100%", transition: { duration: 0.5 } }}
+    >
       <SearchWrapper>
         <input type="text" placeholder="Search Drink...." ref={searchRef} />
         <select>
@@ -62,10 +62,10 @@ const Drinks = () => {
         </select>
         <button onClick={searchDrinks}>Search</button>
       </SearchWrapper>
-      <Animated animationIn="fadeIn">
+      <motion.div>
         <DrinksCommon drinks={drinks} />
-      </Animated>
-    </>
+      </motion.div>
+    </motion.div>
   );
 };
 

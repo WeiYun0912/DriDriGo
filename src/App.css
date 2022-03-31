@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap");
 body {
   background-color: #333333;
+  overflow-x: hidden;
 }
 .App {
   box-sizing: border-box;
